@@ -1,0 +1,8 @@
+Google Maps Version 3 Datatype
+-------------------------------
+
+This extension add a news Google Maps API Version 3 how datatype. This allow you to select a point in world, dmension map, text for marker, layout of navigator and view map. The interface where you can select this is versy simple and intuitive. For now only Italian translation is present.
+
+All default parameter are save on file 'googlemapv3.ini.append.php' present on setting directory. Any component of admin interface can be choice from ini file, how default position, font-end map dimension, back-end map dimension.
+
+See ini file (googlemapv3.ini.append.php) for more detail

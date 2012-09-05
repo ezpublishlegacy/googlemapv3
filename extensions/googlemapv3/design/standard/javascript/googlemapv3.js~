@@ -1,0 +1,124 @@
+var latlngs = new google.maps.MVCArray();
+var displayPath;
+var map;
+
+var tempMarker = new google.maps.Marker();
+
+var tempIcon = new google.maps.MarkerImage(
+  "http://labs.google.com/ridefinder/images/mm_20_green.png",
+  new google.maps.Size(12,20),
+  new google.maps.Size(6,20)
+);
+
+var locationIcon = new google.maps.MarkerImage(
+  "http://labs.google.com/ridefinder/images/mm_20_blue.png",
+  new google.maps.Size(12,20),
+  new google.maps.Size(6,20)
+);
+
+var newShadow = new google.maps.MarkerImage(
+  "http://labs.google.com/ridefinder/images/mm_20_shadow.png",
+  new google.maps.Size(22,20),
+  new google.maps.Point(13,13)
+);
+
+//----------------------------------------------------------------------
+// Create the Google Map to be used
+//----------------------------------------------------------------------
+function createMap(default_lat, default_lon, default_zoom)
+{
+	var point_on_map = new google.maps.LatLng(default_lat,default_lon);
+	var mapOptions = 
+	{
+		zoom: default_zoom,
+		center: point_on_map,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+
+	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	
+	tempMarker.setOptions({
+		icon: tempIcon,
+		shadow: newShadow,
+		draggable: true
+	});
+	
+	google.maps.event.addListener(map, "click", showTempMarker);
+	
+	displayPath = new google.maps.Polyline({
+		map: map,
+		strokeColor: "#FF0000",
+		strokeOpacity: 1.0,
+		strokeWeight: 2,
+		path: latlngs
+	})
+
+}
+
+function showTempMarker(e) 
+{
+	tempMarker.setPosition(e.latLng);
+	
+	document.getElementById('txtLatitude').value = e.latLng.lat();
+	document.getElementById('txtLongitude').value = e.latLng.lng();
+	
+	google.maps.event.addListener(tempMarker, "drag", function() {
+		document.getElementById('txtLatitude').value = tempMarker.getPosition().lat();
+		document.getElementById('txtLongitude').value = tempMarker.getPosition().lng();
+	});
+
+	tempMarker.setMap(map);
+}
+
+
+// //----------------------------------------------------------------------
+// // Create the Google Map to be used
+// //----------------------------------------------------------------------
+// function createMap(default_lat, default_lon, default_zoom)
+// {
+// 	map = new google.maps.Map(document.getElementById("map_canvas"));
+// 	document.map = map;
+// 	document.map.setCenter(new google.maps.LatLng(default_lat, default_lon), default_zoom);
+// 	//document.map.addControl(new GSmallMapControl());
+// 	//document.map.addControl(new GMapTypeControl());
+// 
+// 	//GEvent.addListener(document.map, "click", function(overlay, point)
+// 	google.maps.event.addListener(document.map, "click", function(overlay, point)
+// 	{
+// 
+// 		document.getElementById('txtLatitude').value = point.y;
+// 		document.getElementById('txtLongitude').value = point.x;
+// 	
+// 		if (marker == null) 
+// 		{
+// 			marker = createMarker(point, "green",document.map);
+// 			marker.enableDragging();
+// 	
+// 			//GEvent.addListener(marker, "drag", function()
+// 			google.maps.event.addListener(marker, "drag", function()
+// 			{
+// 				document.getElementById('txtLatitude').value = marker.getPoint().y;
+// 				document.getElementById('txtLongitude').value = marker.getPoint().x;
+// 			});
+// 		} 
+// 		else 
+// 		{
+// 			marker.setPoint(point);
+// 		}
+// 	});
+// 
+// 	marker = createMarker(new google.maps.LatLng(default_lat, default_lon), "green",document.map);
+// 
+// 	//GEvent.addListener(marker, "drag", function()
+// 	google.maps.event.addListener(marker, "drag", function()
+// 	{
+// 		document.getElementById('txtLatitude').value = marker.getPoint().y;
+// 		document.getElementById('txtLongitude').value = marker.getPoint().x;
+// 	});
+// 
+// 	//GEvent.addListener(document.map, 'mouseover', function()
+// 	google.maps.event.addListener(marker, "mouseover", function()
+// 	{
+// 		document.getElementById('txtZoom').value = document.map.getZoom();
+// 	});
+// }

@@ -1,0 +1,10 @@
+Google Maps Version 3 Datatype
+-------------------------------
+
+Author: Pierandrea Della Putta
+Date: 27/02/2010
+
+For install this datatype, copy googlemapv3 directory on <ezpublish install>/extension
+Active extension in admin design. For use, create class and use add attribute 'Google Map V3'
+
+For complete configure, see README file
