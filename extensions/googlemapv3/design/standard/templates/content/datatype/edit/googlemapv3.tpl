@@ -164,29 +164,29 @@
 										<input type="text" name="ContentObjectAttribute_googlemapv3_longitude_{$attribute.id}" id="txtLongitude" value="{$__LATITUDE}" size="90" readonly="readonly" style="background-color:#EEEEEE;"/>
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Zoom'|i18n("design/googlemapsv3")}:</td>
 									<td>
 										<input type="text" name="ContentObjectAttribute_googlemapv3_zoom_{$attribute.id}" id="txtZoom" value="{$__ZOOM}" size="2"  />
 									</td>
 								</tr>
-								<tr>
+								{*<tr>
 									<td align="right">{'Text Marker'|i18n("design/googlemapsv3")}:</td>
 									<td>
 										<textarea rows="5" cols="60" id="txtText" name="ContentObjectAttribute_googlemapv3_text_marker_{$attribute.id}">{$attribute.content.text}</textarea>
 									</td>
-								</tr>
+								</tr>*}
 								{if $__click_choice['selectShowMarker']|eq('true')}
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Marker comportament'|i18n("design/googlemapsv3")}:</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_show_marker_{$attribute.id}" value="click" {$__CLICK} />{'Click on marker to show message'|i18n("design/googlemapsv3")}
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_show_marker_{$attribute.id}" value="over" {$__OVER} />{'Over on mouse to show message'|i18n("design/googlemapsv3")}
@@ -195,38 +195,38 @@
 								{else}
 									<input type="hidden" name="ContentObjectAttribute_googlemapv3_show_marker_{$attribute.id}" value="{$__click_choice['selectShowMarker']}">
 								{/if}
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Front-end map dimension'|i18n("design/googlemapsv3")}:</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Width'|i18n("design/googlemapsv3")}:</td>
 									<td>
-										<input type="text" name="ContentObjectAttribute_googlemapv3_width_{$attribute.id}" id="txtZoom" value="{$attribute.content.width}" size="4"  />
+										<input type="text" name="ContentObjectAttribute_googlemapv3_width_{$attribute.id}" id="txtZoom" value="500" size="4"  />
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Height'|i18n("design/googlemapsv3")}:</td>
 									<td>
-										<input type="text" name="ContentObjectAttribute_googlemapv3_height_{$attribute.id}" id="txtZoom" value="{$attribute.content.height}" size="4"  />
+										<input type="text" name="ContentObjectAttribute_googlemapv3_height_{$attribute.id}" id="txtZoom" value="500" size="4"  />
 									</td>
 								</tr>
 								{if $__click_choice['selectNavigationControl']|eq('true')}
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Front-end Navigation Control'|i18n("design/googlemapsv3")}: {$__SMALL}</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_navigation_control_{$attribute.id}" value="small" {$__SMALL} />SMALL
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_navigation_control_{$attribute.id}" value="zoom_pain" {$__ZOOM_PAIN} />ZOOM_PAN
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_navigation_control_{$attribute.id}" value="default" {$__DEFAUL} />DEFAULT
@@ -236,16 +236,16 @@
 									<input type="hidden" name="ContentObjectAttribute_googlemapv3_navigation_control_{$attribute.id}" value="{$__click_choice['selectNavigationControl']}">
 								{/if}
 								{if $__click_choice['selectControlStyle']|eq('true')}
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Front-end Control Style'|i18n("design/googlemapsv3")}:</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_control_style_{$attribute.id}" value="bar" {$__BAR} />HORIZONTAL_BAR
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_control_style_{$attribute.id}" value="menu" {$__MENU} />DROPDOWN_MENU
@@ -255,29 +255,29 @@
 									<input type="hidden" name="ContentObjectAttribute_googlemapv3_navigation_control_{$attribute.id}" value="{$__click_choice['selectControlStyle']}">
 								{/if}
 								{if $__click_choice['selectMapType']|eq('true')}
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Default Map Type'|i18n("design/googlemapsv3")}:</td>
 								</tr>
 
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_map_type_{$attribute.id}" value="HYBRID" {$__HYBRID} />HYBRID
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_map_type_{$attribute.id}" value="ROADMAP" {$__ROADMAP} />ROADMAP
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_map_type_{$attribute.id}" value="SATELLITE" {$__SATELLITE} />SATELLITE
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_map_type_{$attribute.id}" value="TERRAIN" {$__TERRAIN} />TERRAIN
@@ -287,38 +287,38 @@
 									<input type="hidden" name="ContentObjectAttribute_googlemapv3_map_type_{$attribute.id}" value="{$__click_choice['selectMapType']}">
 								{/if}
 								{if $__click_choice['directions']|eq('true')}
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Enable google maps Direction system'|i18n("design/googlemapsv3")}:</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_directions_start_from_{$attribute.id}" value="yes" {$__START_FROM_YES} />YES
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_directions_start_from_{$attribute.id}" value="no" {$__START_FROM_NO} />NO
 									</td>
 								</tr>
 
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Unit Systems'|i18n("design/googlemapsv3")}:</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_directions_unity_system_{$attribute.id}" value="METRIC" {$__METRIC} />METRIC
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_directions_unity_system_{$attribute.id}" value="IMPERIAL" {$__IMPERIAL} />IMPERIAL
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Output language directions'|i18n("design/googlemapsv3")}:</td>
 									<td>
 {*										<input type="text" name="ContentObjectAttribute_googlemapv3_output_language_directions_{$attribute.id}" value="{$__LANG}" size="2" maxlength="2"/>*}
@@ -380,16 +380,16 @@
 										</select>
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right">{'Direction travel mode'|i18n("design/googlemapsv3")}:</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_directions_travel_mode_{$attribute.id}" value="DRIVING" {$__DRIVING} />DRIVING
 									</td>
 								</tr>
-								<tr>
+								<tr style="display:none;">
 									<td align="right"></td>
 									<td>
 										<input type="radio" name="ContentObjectAttribute_googlemapv3_directions_travel_mode_{$attribute.id}" value="WALKING" {$__WALKING} />WALKING
